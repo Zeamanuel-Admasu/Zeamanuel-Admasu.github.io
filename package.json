@@ -1,10 +1,12 @@
-{
+﻿{
   "name": "my-portfolio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
+    "dev": "next dev",
+    "build": "next build",
+    "export": "next export",
+    "static": "npm run build && npm run export",
     "start": "next start",
     "lint": "eslint"
   },
