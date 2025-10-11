@@ -43,7 +43,8 @@ export default function AboutPage() {
             <p>
               I’m broadly interested in practical ML and efficient systems. I’m also a Data Structures
               student at <b>A2SV (Africa to Silicon Valley)</b>, where I drill algorithms and
-              problem-solving through competitive programming. I have solved 500+ questoins on leetocde and codeforces combined. If you’d like to collaborate or talk
+              problem-solving through competitive programming. I have solved 500+ questions on LeetCode
+              and Codeforces combined. If you’d like to collaborate or talk
               about a project, reach out.
             </p>
           </Section>
@@ -59,8 +60,8 @@ export default function AboutPage() {
                 endpoints (Feb–Jun 2025).
               </li>
               <li>
-  <b>Ethiopian AI Institute • ML Engineering Intern</b> — Led Amharic OCR work: labeled 30+ pages in CVAT, trained a YOLO text-region detector and OCR recognizer; improved detection mAP by 74% and reduced character error rate (CER) by 67% via augmentation and post-processing (Jun–Sep 2025).
-</li>
+                <b>Ethiopian AI Institute • ML Engineering Intern</b> — Led Amharic OCR work: labeled 30+ pages in CVAT, trained a YOLO text-region detector and OCR recognizer; improved detection mAP by 74% and reduced character error rate (CER) by 67% via augmentation and post-processing (Jun–Sep 2025).
+              </li>
               <li>
                 <b>Zebidar Donation App</b> — Go (Gin) + MongoDB backend, Flutter app, Chapa payments
                 for local &amp; international donors (Aug 2025).
@@ -78,51 +79,50 @@ export default function AboutPage() {
           </Section>
 
           <Section title="News">
-  <ul className="not-prose divide-y rounded-xl border">
-    {news.map((n) => {
-      // optional: auto-detect a URL inside text if you didn't add href in news.ts
-      const match = n.text.match(/https?:\/\/\S+/);
-      const autoUrl = match?.[0];
+            <ul className="not-prose divide-y rounded-xl border">
+              {news.map((n) => {
+                // optional: auto-detect a URL inside text if you didn't add href in news.ts
+                const match = n.text.match(/https?:\/\/\S+/);
+                const autoUrl = match?.[0];
 
-      return (
-        <li key={n.date + n.text} className="flex items-start gap-4 p-4">
-          <div className="w-28 shrink-0 text-sm font-medium text-zinc-500">{n.date}</div>
-          <div className="text-base">
-            {/* If you added href/hrefLabel in news.ts, render them; else try to replace the raw URL */}
-            {("href" in n && n.href) ? (
-              <>
-                {n.text}{" "}
-                <a
-                  href={n.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="link-underline"
-                >
-                  {("hrefLabel" in n && n.hrefLabel) ? n.hrefLabel : "click here"}
-                </a>
-              </>
-            ) : autoUrl ? (
-              <>
-                {n.text.replace(autoUrl, "").trim()}{" "}
-                <a
-                  href={autoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="link-underline"
-                >
-                  click here
-                </a>
-              </>
-            ) : (
-              n.text
-            )}
-          </div>
-        </li>
-      );
-    })}
-  </ul>
-</Section>
-
+                return (
+                  <li key={n.date + n.text} className="flex items-start gap-4 p-4">
+                    <div className="w-28 shrink-0 text-sm font-medium text-zinc-500">{n.date}</div>
+                    <div className="text-base">
+                      {/* If you added href/hrefLabel in news.ts, render them; else try to replace the raw URL */}
+                      {"href" in n && n.href ? (
+                        <>
+                          {n.text}{" "}
+                          <a
+                            href={n.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="link-underline"
+                          >
+                            {"hrefLabel" in n && n.hrefLabel ? n.hrefLabel : "click here"}
+                          </a>
+                        </>
+                      ) : autoUrl ? (
+                        <>
+                          {n.text.replace(autoUrl, "").trim()}{" "}
+                          <a
+                            href={autoUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="link-underline"
+                          >
+                            click here
+                          </a>
+                        </>
+                      ) : (
+                        n.text
+                      )}
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          </Section>
         </div>
 
         {/* RIGHT: photo + institute address + profile links */}
@@ -143,50 +143,56 @@ export default function AboutPage() {
             <div>King George St, 5 Kilo</div>
             <div>Addis Ababa, Ethiopia</div>
 
-            {/* NEW: GitHub · Codeforces · LeetCode links */}
-           {/* Profile links as pill buttons */}
-<div className="mt-3 flex flex-wrap items-center gap-2">
-  <a
-    href="https://github.com/Zeamanuel-Admasu"
-    target="_blank"
-    rel="noreferrer"
-    className="inline-flex items-center gap-2 rounded-lg border px-3 py-1.5 text-sm font-medium
-               bg-white text-zinc-800 border-zinc-300 shadow-sm hover:bg-zinc-100
-               dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700 dark:hover:bg-zinc-800
-               transition-colors [&>svg]:h-4 [&>svg]:w-4"
-    aria-label="Open GitHub profile"
-  >
-    <Github /> GitHub
-  </a>
+            {/* Profile links as pill buttons */}
+            <div className="mt-3 flex flex-wrap items-center gap-2">
+              <a
+                href="https://github.com/Zeamanuel-Admasu"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg border px-3 py-1.5 text-sm font-medium
+                           transition-colors shadow-sm
+                           text-zinc-900 bg-white border-zinc-300 hover:bg-zinc-50
+                           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 focus-visible:ring-offset-2 focus-visible:ring-offset-white
+                           dark:text-zinc-50 dark:bg-zinc-800 dark:hover:bg-zinc-700 dark:border-zinc-600
+                           dark:focus-visible:ring-zinc-500 dark:focus-visible:ring-offset-2 dark:focus-visible:ring-offset-zinc-950
+                           [&>svg]:h-4 [&>svg]:w-4"
+                aria-label="Open GitHub profile"
+              >
+                <Github /> GitHub
+              </a>
 
-  <a
-    href="https://codeforces.com/profile/zeaman"
-    target="_blank"
-    rel="noreferrer"
-    className="inline-flex items-center gap-2 rounded-lg border px-3 py-1.5 text-sm font-medium
-               bg-white text-zinc-800 border-zinc-300 shadow-sm hover:bg-zinc-100
-               dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700 dark:hover:bg-zinc-800
-               transition-colors [&>svg]:h-4 [&>svg]:w-4"
-    aria-label="Open Codeforces profile"
-  >
-    <Code2 /> Codeforces
-  </a>
+              <a
+                href="https://codeforces.com/profile/zeaman"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg border px-3 py-1.5 text-sm font-medium
+                           transition-colors shadow-sm
+                           text-zinc-900 bg-white border-zinc-300 hover:bg-zinc-50
+                           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 focus-visible:ring-offset-2 focus-visible:ring-offset-white
+                           dark:text-zinc-50 dark:bg-zinc-800 dark:hover:bg-zinc-700 dark:border-zinc-600
+                           dark:focus-visible:ring-zinc-500 dark:focus-visible:ring-offset-2 dark:focus-visible:ring-offset-zinc-950
+                           [&>svg]:h-4 [&>svg]:w-4"
+                aria-label="Open Codeforces profile"
+              >
+                <Code2 /> Codeforces
+              </a>
 
-  <a
-    href="https://leetcode.com/u/zshibru/"
-    target="_blank"
-    rel="noreferrer"
-    className="inline-flex items-center gap-2 rounded-lg border px-3 py-1.5 text-sm font-medium
-               bg-white text-zinc-800 border-zinc-300 shadow-sm hover:bg-zinc-100
-               dark:bg-zinc-900 dark:text-zinc-100 dark:border-zinc-700 dark:hover:bg-zinc-800
-               transition-colors [&>svg]:h-4 [&>svg]:w-4"
-    aria-label="Open LeetCode profile"
-  >
-    <Sparkles /> LeetCode
-  </a>
-</div>
-
-
+              <a
+                href="https://leetcode.com/u/zshibru/"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg border px-3 py-1.5 text-sm font-medium
+                           transition-colors shadow-sm
+                           text-zinc-900 bg-white border-zinc-300 hover:bg-zinc-50
+                           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 focus-visible:ring-offset-2 focus-visible:ring-offset-white
+                           dark:text-zinc-50 dark:bg-zinc-800 dark:hover:bg-zinc-700 dark:border-zinc-600
+                           dark:focus-visible:ring-zinc-500 dark:focus-visible:ring-offset-2 dark:focus-visible:ring-offset-zinc-950
+                           [&>svg]:h-4 [&>svg]:w-4"
+                aria-label="Open LeetCode profile"
+              >
+                <Sparkles /> LeetCode
+              </a>
+            </div>
           </div>
         </aside>
       </div>
@@ -195,14 +201,13 @@ export default function AboutPage() {
       <SocialBar
         items={[
           {
-      href:
-        "https://mail.google.com/mail/?view=cm&fs=1&to=zeamanshibru2020@gmail.com&su=Hello%20Zeamanuel&body=Hi%20Zeamanuel,%0D%0A%0D%0A",
-      label: "Gmail",
-      icon: <Mail />,
-    },
+            href:
+              "https://mail.google.com/mail/?view=cm&fs=1&to=zeamanshibru2020@gmail.com&su=Hello%20Zeamanuel&body=Hi%20Zeamanuel,%0D%0A%0D%0A",
+            label: "Gmail",
+            icon: <Mail />,
+          },
           { href: "https://github.com/Zeamanuel-Admasu", label: "GitHub", icon: <Github /> },
           { href: "https://www.linkedin.com/in/zeamanuel-admasu-32b6a6212/", label: "LinkedIn", icon: <Linkedin /> },
-          
         ]}
         note="Ways to reach me."
       />

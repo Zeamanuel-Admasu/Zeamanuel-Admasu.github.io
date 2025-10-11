@@ -24,12 +24,12 @@ jobs:
           node-version: "20"
           cache: "npm"
       - run: npm ci
-      - run: npm run build            # <-- only build; Next writes to ./out automatically
+      - run: npm run build            
       - name: Disable Jekyll
         run: echo > out/.nojekyll
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out                 # <-- publish /out
+          path: ./out                 
   deploy:
     needs: build
     runs-on: ubuntu-latest
